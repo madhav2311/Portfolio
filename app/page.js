@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const SKILLS = {
-  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  Backend: ["Node.js", "Go", "Python", "GraphQL", "REST APIs"],
-  Databases: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Supabase"],
-  "Tools / DevOps": ["Docker", "Kubernetes", "Git", "AWS", "CI/CD"],
+  Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  Backend: ["Node.js", "Python","REST APIs"],
+  Databases: ["PostgreSQL", "MongoDB", "Mysql"],
+  "Tools": [ "Git", "AWS", "CI/CD"],
 };
 
 const PHRASES = [
@@ -232,11 +232,9 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center gap-4 mt-14 fade-up">
             {[
-              ["GitHub", "https://github.com"],
-              ["LinkedIn", "https://linkedin.com"],
-              ["X (Twitter)", "https://x.com"],
-              ["YouTube", "https://youtube.com"],
-              ["Instagram", "https://instagram.com"],
+              ["GitHub", "https://github.com/madhav2311"],
+              ["LinkedIn", "https://www.linkedin.com/in/madhavans666/"],
+              
             ].map(([label, href]) => (
               <a
                 key={label}
@@ -251,7 +249,7 @@ export default function Home() {
             ))}
             <a
               aria-label="Email"
-              href="mailto:hello@madhavan.dev"
+              href="mailto:bettafish505@gmail.com"
               className="social-icon font-mono text-xs text-slate-400 border-slate-700 rounded-full px-3 py-1.5"
             >
               Email

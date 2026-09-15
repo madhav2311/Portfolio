@@ -1,56 +1,18 @@
+
+> madhavan-portfolio@1.0.0 dev
+> next dev
+
   ▲ Next.js 14.2.35
   - Local:        http://localhost:3000
   - Environments: .env.local
 
  ✓ Starting...
  ⚠ Found lockfile missing swc dependencies, patching...
- ✓ Ready in 19.1s
+ ✓ Ready in 22.9s
+ ○ Compiling /_not-found ...
  ⨯ Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace
 TypeError: Cannot read properties of undefined (reading 'os')
     at fetchPkgInfo (C:\Users\betta\OneDrive\Desktop\mm\madhavan-portfolio\node_modules\next\dist\lib\patch-incorrect-lockfile.js:73:25)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async Promise.all (index 0)
+    at async Promise.all (index 7)
     at async patchIncorrectLockfile (C:\Users\betta\OneDrive\Desktop\mm\madhavan-portfolio\node_modules\next\dist\lib\patch-incorrect-lockfile.js:162:26)
- ○ Compiling /api/projects ...
- ✓ Compiled /api/projects in 1621ms (61 modules)
- GET /api/projects 200 in 48631ms
- ○ Compiling / ...
- ✓ Compiled / in 26.1s (521 modules)
- GET / 200 in 26303ms
- ✓ Compiled in 308ms (243 modules)
- GET /api/projects 200 in 49ms
- GET / 200 in 60ms
- GET /api/projects 200 in 32ms
- GET /api/projects 200 in 20ms
- GET / 200 in 549ms
- GET /api/projects 200 in 63ms
- GET /api/projects 200 in 36ms
- ○ Compiling /admin ...
- ✓ Compiled /admin in 5.4s (495 modules)
- GET /admin 200 in 8038ms
- ○ Compiling /api/auth ...
- ✓ Compiled /api/auth in 7.1s (266 modules)
- POST /api/auth 401 in 10500ms
- POST /api/auth 401 in 3671ms
- POST /api/auth 401 in 801ms
- POST /api/auth 401 in 571ms
- ○ Compiling /_not-found ...
- ✓ Compiled /_not-found in 16.2s (493 modules)
- GET / 404 in 28450ms
- GET /_next/static/css/app/layout.css?v=1789467962005 404 in 1000ms
- GET /_next/static/chunks/main-app.js?v=1789467962005 404 in 223ms
- GET /_next/static/chunks/app-pages-internals.js 404 in 171ms
- ○ Compiling /_error ...
- ✓ Compiled /_error in 10.2s (720 modules)
- GET /admin 404 in 14124ms
- GET / 404 in 372ms
- GET /_next/static/css/app/layout.css?v=1789468010028 404 in 93ms
- GET /_next/static/chunks/main-app.js?v=1789468010028 404 in 120ms
- GET /_next/static/chunks/app-pages-internals.js 404 in 50ms
- GET / 404 in 74ms
- GET /_next/static/css/app/layout.css?v=1789468016084 404 in 85ms
- GET /_next/static/chunks/main-app.js?v=1789468016084 404 in 94ms
- GET /_next/static/chunks/app-pages-internals.js 404 in 88ms
- GET / 200 in 258ms
-<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\betta\OneDrive\Desktop\mm\madhavan-portfolio\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Users\betta\OneDrive\Desktop\mm\madhavan-portfolio\.next\cache\webpack\client-development\1.pack.gz'
- GET / 200 in 135ms
