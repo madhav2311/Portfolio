@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #0b0f17;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+::selection {
+  background: rgba(0, 243, 255, 0.35);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(112, 0, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(112, 0, 255, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.glass {
+  background: rgba(16, 22, 35, 0.6);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+.grad-text {
+  background: linear-gradient(90deg, #00f3ff, #7000ff, #4ade80);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+.glow-btn {
+  box-shadow:
+    0 0 20px rgba(0, 243, 255, 0.35),
+    0 0 60px rgba(112, 0, 255, 0.2);
+  transition: all 0.3s;
+}
+.glow-btn:hover {
+  box-shadow:
+    0 0 30px rgba(0, 243, 255, 0.6),
+    0 0 90px rgba(112, 0, 255, 0.35);
+  transform: translateY(-2px);
+}
+.card {
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s,
+    border-color 0.35s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.card:hover {
+  border-color: rgba(0, 243, 255, 0.4);
+  box-shadow:
+    0 0 20px rgba(0, 243, 255, 0.3),
+    0 0 60px rgba(112, 0, 255, 0.2),
+    0 20px 60px -15px rgba(0, 243, 255, 0.25);
+}
+.card .card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 243, 255, 0.12),
+    transparent 45%
+  );
+  transition: opacity 0.3s;
+}
+.card:hover .card-shine {
+  opacity: 1;
+}
+.badge-pop {
+  animation: badgePop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) backwards;
+}
+@keyframes badgePop {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.card-enter {
+  animation: cardIn 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.social-icon {
+  transition: all 0.25s;
+}
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 243, 255, 0.8));
+  color: #00f3ff;
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation: float linear infinite;
+  opacity: 0.5;
+}
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-110vh);
+  }
+}
+.pill {
+  transition: all 0.2s;
+}
+.pill:hover {
+  border-color: #00f3ff;
+  color: #00f3ff;
+}
+dialog::backdrop {
+  background: rgba(11, 15, 23, 0.8);
+  backdrop-filter: blur(6px);
+}
+input,
+textarea {
+  color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
