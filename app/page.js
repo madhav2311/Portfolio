@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 const SKILLS = {
   Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-  Backend: ["Node.js", "Python","REST APIs"],
+  Backend: ["Node.js", "Python", "REST APIs"],
   Databases: ["PostgreSQL", "MongoDB", "Mysql"],
-  "Tools": [ "Git", "AWS", "CI/CD"],
+  Tools: ["Git", "AWS", "CI/CD"],
 };
 
 const PHRASES = [
@@ -224,6 +224,14 @@ export default function Home() {
               View Projects
             </a>
             <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 border-slate-500 text-slate-200 font-semibold px-7 py-3.5 rounded-xl hover:border-cyan-neon hover:text-cyan-neon transition"
+            >
+              📄 Resume
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 border-slate-500 text-slate-200 font-semibold px-7 py-3.5 rounded-xl hover:border-cyan-neon hover:text-cyan-neon transition"
             >
@@ -234,7 +242,6 @@ export default function Home() {
             {[
               ["GitHub", "https://github.com/madhav2311"],
               ["LinkedIn", "https://www.linkedin.com/in/madhavans666/"],
-              
             ].map(([label, href]) => (
               <a
                 key={label}
