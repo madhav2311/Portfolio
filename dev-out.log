@@ -1,0 +1,35 @@
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 28.7s
+ ○ Compiling / ...
+ ✓ Compiled / in 35.1s (468 modules)
+ ✓ Compiled in 2.1s (243 modules)
+ GET / 200 in 37337ms
+ GET / 200 in 37367ms
+ ○ Compiling /api/projects ...
+ ✓ Compiled /api/projects in 2.2s (260 modules)
+ GET /api/projects 200 in 29737ms
+ GET /api/projects 200 in 30905ms
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 2.5s (495 modules)
+ GET /api/projects 200 in 2865ms
+ GET /api/projects 200 in 2905ms
+ GET /admin 200 in 3387ms
+ ✓ Compiled /api/auth in 488ms (266 modules)
+ POST /api/auth 200 in 657ms
+ GET /api/projects 200 in 215ms
+ GET /api/projects 200 in 58ms
+ POST /api/projects 201 in 212ms
+ GET /api/projects 200 in 56ms
+ ○ Compiling /api/projects/[id] ...
+ ✓ Compiled /api/projects/[id] in 1433ms (268 modules)
+ DELETE /api/projects/6aaa03afe64b5149d0136746 200 in 3398ms
+ GET /api/projects 200 in 164ms
+ POST /api/projects 201 in 67ms
+ GET /api/projects 200 in 50ms
+ GET / 200 in 327ms
+ GET /api/projects 200 in 57ms
+ GET /api/projects 200 in 34ms

@@ -434,7 +434,7 @@ export default function Home() {
             </form>
             <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-800">
               <span className="font-mono text-sm text-slate-400 flex-1 truncate">
-                hello@madhavan.dev
+                bettafish505@gmail.com
               </span>
               <button
                 onClick={copyEmail}
