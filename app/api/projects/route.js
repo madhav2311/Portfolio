@@ -1,22 +1,47 @@
+import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import { dbConnect } from "@/lib/mongodb";
 import Project from "@/lib/Project";
 import { SEED_PROJECTS } from "@/lib/seedData";
 import { checkAuth, unauthorized } from "@/lib/auth";
 
-// GET /api/projects — public list (auto-seeds the DB on first run)
+// Bump this number whenever you edit lib/seedData.js — the DB will
+// automatically re-sync on the next GET /api/projects call.
+const SEED_VERSION = 3;
+
+// GET /api/projects — public list
+// Auto-seeds: on an empty DB, or when SEED_VERSION is newer than the
+// one stored in the DB (stale seed docs are replaced; manually added
+// projects are kept).
 export async function GET() {
   try {
     await dbConnect();
-    let projects = await Project.find()
+
+    // Check the seed version in the dedicated metadata collection
+    const meta = mongoose.connection.db.collection("meta");
+    let stored = await meta.findOne({ key: "seedVersion" });
+    if (!stored || stored.value !== SEED_VERSION) {
+      // Replace all seed-sourced projects; keep manually added ones
+      await Project.deleteMany({ isSeed: { $ne: false } });
+      await Project.insertMany(
+        SEED_PROJECTS.map((p) => ({ ...p, isSeed: true })),
+      );
+      await meta.updateOne(
+        { key: "seedVersion" },
+        { $set: { value: SEED_VERSION } },
+        { upsert: true },
+      );
+    }
+
+    const projects = await Project.find()
       .sort({ order: 1, createdAt: -1 })
       .lean();
-    if (projects.length === 0) {
-      await Project.insertMany(SEED_PROJECTS);
-      projects = await Project.find().sort({ order: 1, createdAt: -1 }).lean();
-    }
+
     return NextResponse.json(
-      projects.map((p) => ({ ...p, _id: p._id.toString() })),
+      projects.map((p) => {
+        const { isSeed, ...rest } = p;
+        return { ...rest, _id: p._id.toString() };
+      }),
     );
   } catch (err) {
     console.error("GET /api/projects", err);
@@ -51,6 +76,7 @@ export async function POST(req) {
       github: body.github || "",
       cover: body.cover || "",
       order: body.order || 0,
+      isSeed: false,
     });
     return NextResponse.json(
       { ...project.toObject(), _id: project._id.toString() },
