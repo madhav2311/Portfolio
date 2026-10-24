@@ -1,37 +1,33 @@
 import { NextResponse } from "next/server";
-import { dbConnect } from "@/lib/mongodb";
-import Project from "@/lib/Project";
+import { readProjects, writeProjects } from "@/lib/projectsStore";
 import { checkAuth, unauthorized } from "@/lib/auth";
 
 // PUT /api/projects/:id — admin: update project
 export async function PUT(req, { params }) {
   if (!checkAuth(req)) return unauthorized();
   try {
-    await dbConnect();
     const body = await req.json();
-    const project = await Project.findByIdAndUpdate(
-      params.id,
-      {
-        title: body.title,
-        tagline: body.tagline,
-        category: body.category,
-        description: body.description,
-        arch: body.arch,
-        features: body.features,
-        stack: body.stack,
-        demo: body.demo,
-        github: body.github,
-        cover: body.cover,
-        order: body.order,
-      },
-      { new: true, runValidators: true },
-    );
-    if (!project)
+    const projects = await readProjects();
+    const idx = projects.findIndex((p) => p._id === params.id);
+    if (idx === -1)
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
-    return NextResponse.json({
-      ...project.toObject(),
-      _id: project._id.toString(),
-    });
+    projects[idx] = {
+      ...projects[idx],
+      title: body.title ?? projects[idx].title,
+      tagline: body.tagline ?? projects[idx].tagline,
+      category: body.category ?? projects[idx].category,
+      description: body.description ?? projects[idx].description,
+      arch: body.arch ?? projects[idx].arch,
+      features: body.features ?? projects[idx].features,
+      stack: body.stack ?? projects[idx].stack,
+      demo: body.demo ?? projects[idx].demo,
+      github: body.github ?? projects[idx].github,
+      cover: body.cover ?? projects[idx].cover,
+      order: body.order ?? projects[idx].order,
+      updatedAt: new Date().toISOString(),
+    };
+    await writeProjects(projects);
+    return NextResponse.json(projects[idx]);
   } catch (err) {
     console.error("PUT /api/projects/[id]", err);
     return NextResponse.json(
@@ -45,10 +41,11 @@ export async function PUT(req, { params }) {
 export async function DELETE(req, { params }) {
   if (!checkAuth(req)) return unauthorized();
   try {
-    await dbConnect();
-    const project = await Project.findByIdAndDelete(params.id);
-    if (!project)
+    const projects = await readProjects();
+    const filtered = projects.filter((p) => p._id !== params.id);
+    if (filtered.length === projects.length)
       return NextResponse.json({ error: "Project not found" }, { status: 404 });
+    await writeProjects(filtered);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("DELETE /api/projects/[id]", err);

@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "1",
+    "title": "Prep AI",
+    "tagline": "AI-powered preparation platform designed to streamline interview practice, mock assessments, and structured revision.",
+    "category": "AI & Microservices",
+    "stack": [
+      "Next.js"
+    ],
+    "features": [
+      "Status: Under Development",
+      "AI-driven interview practice sessions",
+      "Mock assessments with instant feedback",
+      "Structured revision planning",
+      "Deployed live on Vercel"
+    ],
+    "arch": "Next.js application deployed on Vercel, providing interview practice, mock assessments, and structured revision workflows.",
+    "demo": "https://prep-ai-final.vercel.app/",
+    "github": "https://github.com/madhav2311/PrepAIUpdated",
+    "cover": "",
+    "order": 1,
+    "createdAt": "2026-10-24T07:21:00.628Z",
+    "updatedAt": "2026-10-24T07:21:00.628Z"
+  },
+  {
+    "_id": "2",
+    "title": "My Gate Planner",
+    "tagline": "Dedicated study roadmap and scheduling application built to monitor syllabus progress, milestones, and daily goals for the GATE exam.",
+    "category": "Real-Time Web App",
+    "stack": [
+      "Next.js"
+    ],
+    "features": [
+      "Status: Under Development",
+      "GATE syllabus progress tracking",
+      "Milestone and roadmap planning",
+      "Daily goal scheduling and monitoring",
+      "Deployed on Vercel"
+    ],
+    "arch": "Next.js application for planning and tracking GATE exam preparation with syllabus progress, milestones, and daily goals.",
+    "demo": "https://vercel.com/madhav2311s-projects/gate",
+    "github": "https://github.com/madhav2311/Prep",
+    "cover": "",
+    "order": 2,
+    "createdAt": "2026-10-24T07:21:00.628Z",
+    "updatedAt": "2026-10-24T07:21:00.628Z"
+  },
+  {
+    "_id": "3",
+    "title": "Data Centric Security System + Data Shredder",
+    "tagline": "Desktop security utility featuring robust AES encryption for sensitive files and secure, multi-pass data shredding to prevent recovery.",
+    "category": "Security & Desktop",
+    "stack": [
+      "Python",
+      "Tkinter"
+    ],
+    "features": [
+      "Status: Under Development",
+      "AES encryption for sensitive files",
+      "Multi-pass secure data shredding",
+      "Recovery prevention for deleted data",
+      "End-user desktop application"
+    ],
+    "arch": "Python desktop application with a Tkinter UI, implementing AES file encryption and multi-pass shredding for secure data disposal.",
+    "demo": "",
+    "github": "https://github.com/madhav2311/DCS-A-End-User-Software/tree/master",
+    "cover": "",
+    "order": 3,
+    "createdAt": "2026-10-24T07:21:00.628Z",
+    "updatedAt": "2026-10-24T07:21:00.628Z"
+  }
+]
